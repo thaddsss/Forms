@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Forms</title>
+</head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+</script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+<link rel="stylesheet" type="text/css" href="mydesign.css">
+
+<body>
+  
+
+    <div align="center">
+
+      <form method="post" enctype="text/plain" onsubmit="return validateForm()">
+        <label> First Name</label><br>
+        <input type="text" minlength="5" name="FirstName" value="" placeholder=" type your first name" > <br><br>
+
+        <label> Middle Name </label><br>
+        <input type="text" minlength="5" name="MiddleName" value="" placeholder=" type your middle name" > <br><br>
+
+        <label> Last Name</label><br>
+        <input type="text" minlength="5" name="LastName" value="" placeholder=" type your last name" > <br><br>
+
+        <label> Contact Number </label><br>
+        <input type="number" name="Contact Number" value="" placeholder=" type your number"> <br><br>
+
+        <label> Email </label><br>
+        <input type="email" name="Email" id="email" value="" placeholder="email '@' sign"> <br><br>
+
+        <label> Username</label><br>
+        <input type="text" minlength="5" name="UserName " value="" placeholder="type your Username" > <br><br>
+
+        <label> Password</label><br>
+        <input type="password" id="password" name="password" placeholder="******">><br><br>
+
+        <label> Confirm password</label><br>
+        <input type="password" id="Confirmpassword" name="password" placeholder="******">><br><br>
+        
+        <input class="button"  type="submit" value="Submit">
+
+    </div>
+
+
+    <script>
+
+function validateForm()
+{
+  var hey = ("FirstName", "MiddleName", "LastName", "Contact Number", "Email", "UserName")
+  var x, y = hey.length;
+  var heyname;
+  for (x = 0; x < y; x++) {
+    heyname = fields[x];
+    if (document.forms["Form"][heyname].value === "") {
+      alert(heyname + " Fill this");
+      return false;
+    }
+    }
+  	return true;
+	}
+      var password = document.getElementById("password")
+      Confirmpassword = document.getElementById("Confirmpassword");
+        function validatePassword(){
+         if(password.value != Confirmpassword.value) {
+        Confirmpassword.setCustomValidity("Passwords Incorrect");
+        } else {
+        Confirmpassword.setCustomValidity('');
+          }
+        }
+        password.onchange = validatePassword;
+        Confirmpassword.onkeyup = validatePassword;
+
+    </script>
+    
+  </body>
+</html>
