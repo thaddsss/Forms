@@ -16,65 +16,77 @@
 
     <div align="center">
 
-      <form method="post" enctype="text/plain" onsubmit="return validateForm()">
-        <label> First Name</label><br>
-        <input type="text" minlength="5" name="FirstName" value="" placeholder=" type your first name" > <br><br>
+					<form method="post" action="index2.html"  onsubmit="return checkblank()">
 
-        <label> Middle Name </label><br>
-        <input type="text" minlength="5" name="MiddleName" value="" placeholder=" type your middle name" > <br><br>
+							<label>First Name:</label><br>
+							<input type="text" id="firstname" value="" placeholder="Type your first name"><br> 
 
-        <label> Last Name</label><br>
-        <input type="text" minlength="5" name="LastName" value="" placeholder=" type your last name" > <br><br>
+							<label>Middle Name:</label><br>
+							<input type="text" id="middlename" value="" placeholder="Type your middle name"><br>
 
-        <label> Contact Number </label><br>
-        <input type="number" name="Contact Number" value="" placeholder=" type your number"> <br><br>
+							<label>Last Name:</label><br>
+							<input type="text" id="lastname" value="" placeholder="Type your last name"><br>
 
-        <label> Email </label><br>
-        <input type="email" name="Email" id="email" value="" placeholder="email '@' sign"> <br><br>
+							<label>Contact No.:</label><br>
+							<input type="Number" id="Contact" value="" placeholder="Type your contact"><br>
 
-        <label> Username</label><br>
-        <input type="text" minlength="5" name="UserName " value="" placeholder="type your Username" > <br><br>
+							<label>Email:</label><br>
+							<input type="Email" id="Email" value="" placeholder="Type your email address"><br>
 
-        <label> Password</label><br>
-        <input type="password" id="password" name="password" placeholder="******"><br><br>
+							<label>Username:</label><br>
+							<input type="text" id="Username" value="" placeholder="Type your user name"><br>
 
-        <label> Confirm password</label><br>
-        <input type="password" id="Confirmpassword" name="password" placeholder="******"><br><br>
-        
-        <input class="button"  type="submit" value="Submit">
+							<label>Password:</label><br>
+							<input type="password" id="inputpass" value=""><br>
 
+							<label>Confirm Password:</label><br>
+							<input type="password" id="confirmpass" value=""><br><br>
+
+						<a href="index2.html"> <input type="submit" id="submit" value="Submit"></a>
+
+			</form>
     </div>
 
 
     <script>
+				function checkblank(){
+			 var errormessager="";
+			if (document.getElementById('firstname').value == "") {
+			    errormessager+="Please Enter your first name \n";
+			}
+			if (document.getElementById('middlename').value == "") {
+			    errormessager+="Please Enter your middle name \n";
+			}
+			if (document.getElementById('lastname').value == "") {
+			    errormessager+="Please Enter your lastname \n";
+			}
+			if (document.getElementById('Contact').value == "") {
+			    errormessager+="Please Enter contact number \n";
+			}
+			if (document.getElementById('Contact').value.length <11) {
+			    errormessager+="Enter 11 numbers \n";
+			}
+			if (document.getElementById('Email').value =="") {
+			    errormessager+="Enter email Address \n";
+			}
+			if (document.getElementById('Username').value =="") {
+			    errormessager+="Enter User Name \n";
+			}
+			if (document.getElementById('inputpass').value =="") {
+			    errormessager+="Enter password \n";
+			}
+			if (document.getElementById('inputpass').value.length < 5) {
+			    errormessager+="Enter atleast 5 \n";
+			}
+			if (document.getElementById('confirmpass').value !=document.getElementById('confirmpass').value) {
+			    errormessager+="Password Incorrect \n";
+			}
 
-function validateForm()
-{
-  var hey = ("FirstName", "MiddleName", "LastName", "Contact Number", "Email", "UserName")
-  var x, y = hey.length;
-  var heyname;
-  for (x = 0; x < y; x++) {
-    heyname = fields[x];
-    if (document.forms["Form"][heyname].value === "") {
-      alert(heyname + " Fill this");
-      return false;
-    }
-    }
-  	return true;
-	}
-      var password = document.getElementById("password")
-      Confirmpassword = document.getElementById("Confirmpassword");
-        function validatePassword(){
-         if(password.value != Confirmpassword.value) {
-        Confirmpassword.setCustomValidity("Passwords Incorrect");
-        } else {
-        Confirmpassword.setCustomValidity('');
-          }
-        }
-        password.onchange = validatePassword;
-        Confirmpassword.onkeyup = validatePassword;
-
-    </script>
-    
+			if (errormessager != "") {
+			    alert(errormessager);
+			    return false;
+			}
+			    }
+			</script>
   </body>
 </html>
